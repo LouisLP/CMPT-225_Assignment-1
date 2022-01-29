@@ -33,7 +33,6 @@ private:
 	string phone;
 	// Patient's email address
 	string email;
-	//string friends[ARRAY_SIZE];       // list of friends <= can be implemented using a List ADT
 
 public:
 

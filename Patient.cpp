@@ -47,7 +47,51 @@ Patient::Patient(string aCareCard) {
 
 // All other parameterized constructors -> You need to implement these methods.
 
-// Getters and setters -> You need to implement these methods.
+// Getters and setters
+// Description: Returns patient's name.
+string getName() const{
+	return name;
+}
+
+// Description: Returns patient's address.
+string getAddress() const{
+	return address;
+}
+
+// Description: Returns patient's phone.
+string getPhone() const{
+	return phone;
+}
+
+// Description: Returns patient's email.
+string getEmail() const{
+	return email;
+}
+
+// Description: Returns patient's care card.
+string getCareCard() const{
+	return careCard;
+}
+
+// Description: Sets the patient's name.
+void setName(const string aName){
+	name = aName;
+}
+
+// Description: Sets the patient's address.
+void setAddress(const string anAddress){
+	address = anAddress;
+}
+
+// Description: Sets the patient's phone.
+void setPhone(const string aPhone){
+	phone = aPhone;
+}
+
+// Description: Sets the patient's email.
+void setEmail(const string anEmail){
+	email = anEmail;
+}
 
 // Overloaded Operators
 // Description: Comparison operator. Compares "this" Patient object with "rhs" Patient object.
