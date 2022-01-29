@@ -1,0 +1,6 @@
+Before submitting on CourSys, put everything in a zip file called "Assn1_1221.zip" including:
+- Patient.h
+- Patient.cpp
+- List.h
+- List.cpp
+- walkIn.cpp
