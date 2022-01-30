@@ -37,7 +37,7 @@ int List::getElementCount() const {
 // Precondition: newElement must not already be in data collection.
 // Postcondition: newElement inserted and elementCount has been incremented.
 bool List::insert(const Patient& newElement){
-
+  return false;
 }
 
 // Description: Remove an element.
@@ -82,7 +82,7 @@ Patient* List::search(const Patient& target){
 
 // Description: Prints all elements stored in List by descending order of search key.
 void List::printList(){
-
+  return;
 }
 
 // Description: Returns the element at position in the List.

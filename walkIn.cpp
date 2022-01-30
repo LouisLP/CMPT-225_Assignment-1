@@ -70,12 +70,12 @@ void search(List& patientList){
 
 // Implement me (add parameter for patient)
 void modify(){
-
+  return;
 }
 
 // Implement me (add parameter for patient)
 void printAll(){
-
+  return;
 }
 
 // Beging main function (giving the receptionist menu options)
