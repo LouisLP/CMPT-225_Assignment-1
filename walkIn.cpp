@@ -15,6 +15,11 @@ void remove(){
 }
 
 // Implement me (add parameter for patient)
+void search(){
+
+}
+
+// Implement me (add parameter for patient)
 void modify(){
 
 }
