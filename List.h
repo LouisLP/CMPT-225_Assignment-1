@@ -6,8 +6,8 @@
  *                   - Each element is unique (no duplicates).
  *                   - (For you to fill: Add the other invariant(s) of this List class.)
  *
- * Author: (For you to fill)
- * Date: (For you to fill)
+ * Author: Louis Lascelles-Palys
+ * Date: January 29th, 2022 (latest modification)
  */
 
 #pragma once
@@ -29,10 +29,14 @@ private:
  * nor can you change them.
  */
 
-	int const INITIAL_CAPACITY = 1;                  // constant INITIAL_CAPACITY
-	//int * patientList = new Patient[]                  // Data structure of elements
-	int elementCount;                  // Number of elements in the data structure
-	int capacity;                      // Actual capacity of data structure
+	// Data structure's initial capacity
+	int const INITIAL_CAPACITY = 1;
+	// Data structure
+	Patient * elements = new Patient[INITIAL_CAPACITY];
+	// Number of elements in the data structure
+	int elementCount;
+	// Full capacity (n) that can be held
+	int capacity;
 
 public:
 

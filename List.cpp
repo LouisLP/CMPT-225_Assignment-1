@@ -43,16 +43,26 @@ bool List::insert(const Patient& newElement){
 // Description: Remove an element.
 // Postcondition: toBeRemoved is removed and elementCount has been decremented.
 bool List::remove(const Patient& toBeRemoved){
-  delete[] //array;
-  //array = NULL;
-  elementCount = 0;
-  return;
-}
+  // Finding the element to be removed
+  for (int i = 0; i  < getElementCount(); i++){
+    if (elements[i] == toBeRemoved){
+      for (int j = i+1; j < elementCount; j++){
+        elements[j-1] = elements[j];
+      }
+      // If it's successfully removed, element count decreases by 1
+      elementCount--;
+      // And we return true because it was removed successfully
+      return true;
+    } else{
+      return false;
+    }
+  }
+} // End "remove"
 
 // Description: Remove all elements.
 void List::removeAll(){
-  delete[] //array;
-  //array = NULL;
+  delete[] elements;
+  elements = NULL;
   elementCount = 0;
   return;
 }
@@ -61,8 +71,14 @@ void List::removeAll(){
 //              Returns a pointer to the element if found,
 //              otherwise, returns NULL.
 Patient* List::search(const Patient& target){
-
-}
+  for (int i = 0; i < getElementCount(); i++){
+    if (elements[i] == target){
+      return &elements[i];
+    } else{
+      return NULL;
+    }
+  }
+} // End "search"
 
 // Description: Prints all elements stored in List by descending order of search key.
 void List::printList(){
