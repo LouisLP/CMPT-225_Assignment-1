@@ -2,9 +2,9 @@
  * Patient.cpp
  *
  * Class Description: Models a walk-in clinic patient.
- * Class Invariant: Each patient has a unique care card number.
- *                  This care card number must have 10 digits.
- *                  This care card number cannot be modified.
+ * Class Invariant: Each patient has a unique CareCard number.
+ *                  This CareCard number must have 10 digits.
+ *                  This CareCard number cannot be modified.
  *
  * Author: Louis Lascelles-Palys
  * Date: January 24th, 2022
@@ -16,9 +16,9 @@
 #include "Patient.h"
 
 // Default Constructor
-// Description: Create a patient with a care card number of "0000000000".
+// Description: Create a patient with a CareCard number of "0000000000".
 // Postcondition: All data members set to "To be entered",
-//                except the care card number which is set to "0000000000".
+//                except the CareCard number which is set to "0000000000".
 Patient::Patient() {
 	careCard = "0000000000";
 	name = "To be entered";
@@ -28,8 +28,8 @@ Patient::Patient() {
 }
 
 // Parameterized Constructor
-// Description: Create a patient with the given care card number.
-// Postcondition: If aCareCard does not have 10 digits, then care card is set to "0000000000".
+// Description: Create a patient with the given CareCard number.
+// Postcondition: If aCareCard does not have 10 digits, then CareCard is set to "0000000000".
 //                All other data members set to "To be entered".
 Patient::Patient(string aCareCard) {
 // You need to complete this method.
@@ -38,7 +38,7 @@ Patient::Patient(string aCareCard) {
 	phone = "To be entered";
 	email = "To be entered";
 	if (aCareCard.length() != 10){
-		cout << "Care card length wasn't entered as 10-digits, defaulting to 0000000000" << endl;
+		cout << "CareCard length wasn't entered as 10-digits, defaulting to 0000000000" << endl;
 		careCard = 0000000000;
 	} else{
 		careCard = aCareCard;
@@ -69,7 +69,7 @@ string getEmail() const{
 	return email;
 }
 
-// Description: Returns patient's care card.
+// Description: Returns patient's CareCard.
 string getCareCard() const{
 	return careCard;
 }
@@ -96,14 +96,14 @@ void setEmail(const string anEmail){
 
 // Overloaded Operators
 // Description: Comparison operator. Compares "this" Patient object with "rhs" Patient object.
-//              Returns true if both Patient objects have the same care card number.
+//              Returns true if both Patient objects have the same CareCard number.
 bool Patient::operator == (const Patient & rhs) {
 	// Compare both Patient objects
 	return this->careCard == rhs.getCareCard();
 } // end of operator ==
 
 // Description: Greater than operator. Compares "this" Patient object with "rhs" Patient object.
-//              Returns true if the care card number of "this" Patient object is > the care card
+//              Returns true if the CareCard number of "this" Patient object is > the CareCard
 //              number of "rhs" Patient object
 bool Patient::operator > (const Patient & rhs) {
 	// Compare both Patient objects
@@ -111,7 +111,7 @@ bool Patient::operator > (const Patient & rhs) {
 } // end of operator >
 
 // Description: Less than operator. Compares "this" Patient object with "rhs" Patient object.
-//              Returns true if the care card number of "this" Patient object is < the care card
+//              Returns true if the CareCard number of "this" Patient object is < the CareCard
 //              number of "rhs" Patient object.
 bool Patient::operator < (const Patient & rhs) {
 	// Compare both Patient objects

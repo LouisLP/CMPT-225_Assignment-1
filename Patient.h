@@ -2,9 +2,9 @@
  * Patient.h
  *
  * Class Description: Models a walk-in clinic patient.
- * Class Invariant: Each patient has a unique care card number.
- *                  This care card number must have 10 digits.
- *                  This care card number cannot be modified.
+ * Class Invariant: Each patient has a unique CareCard number.
+ *                  This CareCard number must have 10 digits.
+ *                  This CareCard number cannot be modified.
  *
  * Author: Louis Lascelles-Palys
  * Date: January 24th, 2022
@@ -23,7 +23,7 @@ class Patient {
 private:
 	// Constant size of our array
 	static const int ARRAY_SIZE = 10;
-	// Patient's care card number (important piece of information)
+	// Patient's CareCard number (important piece of information)
 	string careCard;
 	// Patient's name (first and last)
 	string name;
@@ -45,14 +45,14 @@ public:
  */
 
 	// Default Constructor
-	// Description: Create a patient with a care card number of "0000000000".
+	// Description: Create a patient with a CareCard number of "0000000000".
 	// Postcondition: All data members set to "To be entered",
-	//                except the care card number which is set to "0000000000".
+	//                except the CareCard number which is set to "0000000000".
 	Patient();
 
 	// Parameterized Constructor
-	// Description: Create a patient with the given care card number.
-	// Postcondition: If aCareCard does not have 10 digits, then care card is set to "0000000000".
+	// Description: Create a patient with the given CareCard number.
+	// Postcondition: If aCareCard does not have 10 digits, then CareCard is set to "0000000000".
 	//                All other data members set to "To be entered".
 	Patient(string aCareCard);
 
@@ -71,7 +71,7 @@ public:
 	// Description: Returns patient's email.
 	string getEmail() const;
 
-	// Description: Returns patient's care card.
+	// Description: Returns patient's CareCard.
 	string getCareCard() const;
 
 	// Description: Sets the patient's name.
@@ -88,16 +88,16 @@ public:
 
 	// Overloaded Operators
 	// Description: Comparison operator. Compares "this" Patient object with "rhs" Patient object.
-	//              Returns true if both Patient objects have the same care card number.
+	//              Returns true if both Patient objects have the same CareCard number.
 	bool operator == (const Patient & rhs);
 
 	// Description: Greater than operator. Compares "this" Patient object with "rhs" Patient object.
-	//              Returns true if the care card number of "this" Patient object is > the care card
+	//              Returns true if the CareCard number of "this" Patient object is > the CareCard
 	//              number of "rhs" Patient object.
 	bool operator > (const Patient & rhs);
 
 	// Description: Less than operator. Compares "this" Patient object with "rhs" Patient object.
-	//              Returns true if the care card number of "this" Patient object is < the care card
+	//              Returns true if the CareCard number of "this" Patient object is < the CareCard
 	//              number of "rhs" Patient object.
 	bool operator < (const Patient & rhs);
 
