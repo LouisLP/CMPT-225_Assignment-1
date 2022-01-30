@@ -37,11 +37,12 @@ Patient::Patient(string aCareCard) {
 	address = "To be entered";
 	phone = "To be entered";
 	email = "To be entered";
-	// if (aCareCard != 10 digits){
-	// 	careCard = 0000000000;
-	// } else{
-	// 	careCard = aCareCard;
-	// }
+	if (aCareCard.length() != 10){
+		cout << "Care card length wasn't entered as 10-digits, defaulting to 0000000000" << endl;
+		careCard = 0000000000;
+	} else{
+		careCard = aCareCard;
+	}
 
 }
 
@@ -125,5 +126,11 @@ ostream & operator<<(ostream & os, const Patient & p) {
 
 	return os;
 } // end of operator<<
+
+// New method: printPatient
+// Description: prints all attributes of "this" patient
+void printPatient(){
+	cout << getCareCard() << "- Patient: " << getName() << ", " << getAddress() << ", " << getPhone() << ", " << getEmail << endl;
+}
 
 // end of Patient.cpp

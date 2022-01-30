@@ -105,4 +105,8 @@ public:
 	// Description: Prints the content of "this".
 	friend ostream & operator<<(ostream & os, const Patient & p);
 
+	// New method: printPatient
+	// Description: prints all attributes of "this" patient
+	void printPatient();
+
 }; // end of Patient.h

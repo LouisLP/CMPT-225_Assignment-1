@@ -29,7 +29,7 @@ List::~List() {
 }
 
 // Description: Returns the current number of elements in the List.
-int  List::getElementCount() const {
+int List::getElementCount() const {
    return elementCount;
 }
 
