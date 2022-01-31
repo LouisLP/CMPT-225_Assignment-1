@@ -39,7 +39,7 @@ Patient::Patient(string aCareCard) {
 	email = "To be entered";
 	if (aCareCard.length() != 10){
 		cout << "CareCard length wasn't entered as 10-digits, defaulting to 0000000000" << endl;
-		careCard = 0000000000;
+		careCard = "0000000000";
 	} else{
 		careCard = aCareCard;
 	}

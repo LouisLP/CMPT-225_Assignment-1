@@ -81,7 +81,6 @@ void printAll(List& patientList){
 
 // Beging main function (giving the receptionist menu options)
 int main() {
-
     List * patients = new List();
     bool done = false;
     char input = 0;
@@ -105,7 +104,7 @@ int main() {
         cout << "To list all patients in the system, enter: a" << endl;
         // Exit case
         cout << "To exit, enter: x" << endl;
-        
+
         cout << "------------------------------------------------------" << endl;
         cout << "Your choice: " << endl;
         cin >> input;
