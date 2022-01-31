@@ -15,7 +15,7 @@
 using namespace std;
 
 // Description: adds a new patient based off of given Care Card number
-void enter(List& patientList){
+void addPatient(List& patientList){
   string input;
   cout << "You have chosen to enter a new patient." << endl;
   cout << "Please enter the 10-digit CareCard number of the new patient: ";
@@ -33,7 +33,7 @@ void enter(List& patientList){
 }
 
 // Description: removes a patient based off of given Care Card number
-void remove(List& patientList){
+void removePatient(List& patientList){
   string input;
   cout << "You have chosen to remove a patient." << endl;
   cout << "Please enter the 10-digit CareCard number of the patient you'd like to remove: ";
@@ -42,16 +42,17 @@ void remove(List& patientList){
   Patient patientToRemove = Patient(input);
   // Checking to see if the patient can be removed (bool value from List.cpp)
   bool valid = patientList.remove(patientToRemove);
-  if(!valid){
+  if(!valid) {
     cout << "Error: unable to remove patient. Check your Care Card number and try again." << endl;
-  } else{
+  }
+  else {
     cout << "Patient has been successfully removed from the system." << endl;
     patientList.printList();
   }
 }
 
 // Description: searches for an existing patient based off of given Care Card number
-void search(List& patientList){
+void searchPatient(List& patientList){
   string input;
   cout << "You have chosen to search for a patient." << endl;
   cout << "Please enter the 10-digit CareCard number of the patient you'd like to search for: ";
@@ -69,12 +70,12 @@ void search(List& patientList){
 }
 
 // Implement me (add parameter for patient)
-void modify(){
+void modifyPatient(List& patientList){
   return;
 }
 
 // Implement me (add parameter for patient)
-void printAll(){
+void printAll(List& patientList){
   return;
 }
 
@@ -102,9 +103,9 @@ int main() {
         cout << "To modify a patient's record, enter: m" << endl;
         // Print all patients (in descending order of CareCard numbers)
         cout << "To list all patients in the system, enter: a" << endl;
-
         // Exit case
         cout << "To exit, enter: x" << endl;
+        
         cout << "------------------------------------------------------" << endl;
         cout << "Your choice: " << endl;
         cin >> input;
@@ -113,10 +114,10 @@ int main() {
         cout << "------------------------------------------------------" << endl;
 
         switch(tolower(input)) {
-            case 'e': enter(patients); break;
-            case 'r': remove(patients); break;
-            case 's': search(patients); break;
-            case 'm': modify(patients); break;
+            case 'e': addPatient(patients); break;
+            case 'r': removePatient(patients); break;
+            case 's': searchPatient(patients); break;
+            case 'm': modifyPatient(patients); break;
             case 'a': printAll(patients); break;
             // Exit case (user is "done" when done = true)
             case 'x': cout << "Goodbye!" << endl; done = true; break;
