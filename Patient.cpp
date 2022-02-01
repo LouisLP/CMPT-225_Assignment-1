@@ -43,54 +43,69 @@ Patient::Patient(string aCareCard) {
 	} else{
 		careCard = aCareCard;
 	}
-
 }
 
-// All other parameterized constructors -> You need to implement these methods.
+// New Parameterized Constructor 2 (all attributes)
+// Description: Create a patient with ALL attributes filled (carecard, name, address, phone, and email).
+// Postcondition: If aCareCard does not have 10 digits, then CareCard is set to "0000000000".
+Patient::Patient(const string aCareCard, const string aName, const string anAddress, const string aPhone, const string anEmail) {
+// You need to complete this method.
+	setName(aName);
+	setAddress(anAddress);
+	setPhone(aPhone);
+	setEmail(anEmail);
+
+	if (aCareCard.length() != 10){
+		cout << "CareCard length wasn't entered as 10-digits, defaulting to 0000000000" << endl;
+		careCard = "0000000000";
+	} else{
+		careCard = aCareCard;
+	}
+}
 
 // Getters and setters
 // Description: Returns patient's name.
-string getName() const{
+string Patient::getName() const{
 	return name;
 }
 
 // Description: Returns patient's address.
-string getAddress() const{
+string Patient::getAddress() const{
 	return address;
 }
 
 // Description: Returns patient's phone.
-string getPhone() const{
+string Patient::getPhone() const{
 	return phone;
 }
 
 // Description: Returns patient's email.
-string getEmail() const{
+string Patient::getEmail() const{
 	return email;
 }
 
 // Description: Returns patient's CareCard.
-string getCareCard() const{
+string Patient::getCareCard() const{
 	return careCard;
 }
 
 // Description: Sets the patient's name.
-void setName(const string aName){
+void Patient::setName(const string aName){
 	name = aName;
 }
 
 // Description: Sets the patient's address.
-void setAddress(const string anAddress){
+void Patient::setAddress(const string anAddress){
 	address = anAddress;
 }
 
 // Description: Sets the patient's phone.
-void setPhone(const string aPhone){
+void Patient::setPhone(const string aPhone){
 	phone = aPhone;
 }
 
 // Description: Sets the patient's email.
-void setEmail(const string anEmail){
+void Patient::setEmail(const string anEmail){
 	email = anEmail;
 }
 

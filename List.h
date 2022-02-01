@@ -30,7 +30,7 @@ private:
  */
 
 	// Data structure's initial capacity
-	int const INITIAL_CAPACITY = 1;
+	int const INITIAL_CAPACITY = 10;
 	// Data structure
 	Patient * elements = new Patient[INITIAL_CAPACITY];
 	// Number of elements in the data structure
