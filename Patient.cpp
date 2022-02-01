@@ -42,7 +42,7 @@ Patient::Patient(string aCareCard) {
 		careCard = "0000000000";
 	} else{
 		careCard = aCareCard;
-	}
+	} // End CareCard check
 }
 
 // New Parameterized Constructor 2 (all attributes)
@@ -60,7 +60,7 @@ Patient::Patient(string aCareCard, string aName, string anAddress, string aPhone
 		careCard = "0000000000";
 	} else{
 		careCard = aCareCard;
-	}
+	} // End CareCard check
 }
 
 // Getters and setters

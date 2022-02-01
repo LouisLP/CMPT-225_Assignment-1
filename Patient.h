@@ -56,7 +56,10 @@ public:
 	//                All other data members set to "To be entered".
 	Patient(string aCareCard);
 
-	// Add more parameterized constructors here!
+	// New Parameterized Constructor 2 (all attributes)
+	// Description: Create a patient with ALL attributes filled (carecard, name, address, phone, and email).
+	// Postcondition: If aCareCard does not have 10 digits, then CareCard is set to "0000000000".
+	Patient(string aCareCard, string aName, string anAddress, string aPhone, string anEmail);
 
 	// Getters and setters
 	// Description: Returns patient's name.
