@@ -15,7 +15,7 @@
 using namespace std;
 
 // Description: adds a new patient based off of given Care Card number
-void addPatient(List& patientList){
+void addPatient(List* patientList){
   string input;
   cout << "You have chosen to enter a new patient." << endl;
   cout << "Please enter the 10-digit CareCard number of the new patient: ";
@@ -23,17 +23,17 @@ void addPatient(List& patientList){
 
   Patient newPatient = Patient(input);
   // Checking to see if the patient can be added (bool value from List.cpp)
-  bool valid = patientList.insert(newPatient);
+  bool valid = patientList->insert(newPatient);
   if(!valid){
     cout << "Error: unable to insert new patient." << endl;
   } else{
     cout << "New patient has been successfully entered into the system." << endl;
-    patientList.printList();
+    patientList->printList();
   }
 }
 
 // Description: removes a patient based off of given Care Card number
-void removePatient(List& patientList){
+void removePatient(List* patientList){
   string input;
   cout << "You have chosen to remove a patient." << endl;
   cout << "Please enter the 10-digit CareCard number of the patient you'd like to remove: ";
@@ -41,18 +41,18 @@ void removePatient(List& patientList){
 
   Patient patientToRemove = Patient(input);
   // Checking to see if the patient can be removed (bool value from List.cpp)
-  bool valid = patientList.remove(patientToRemove);
+  bool valid = patientList->remove(patientToRemove);
   if(!valid) {
     cout << "Error: unable to remove patient. Check your Care Card number and try again." << endl;
   }
   else {
     cout << "Patient has been successfully removed from the system." << endl;
-    patientList.printList();
+    patientList->printList();
   }
 }
 
 // Description: searches for an existing patient based off of given Care Card number
-void searchPatient(List& patientList){
+void searchPatient(List* patientList){
   string input;
   cout << "You have chosen to search for a patient." << endl;
   cout << "Please enter the 10-digit CareCard number of the patient you'd like to search for: ";
@@ -60,22 +60,22 @@ void searchPatient(List& patientList){
 
   Patient patientToSearch = Patient(input);
   // Searching for the patient (pointer)
-  Patient * patient = patientList.search(patientToSearch);
+  Patient * patient = patientList->search(patientToSearch);
   if(patient == NULL){
     cout << "Error: unable to find patient." << endl;
   } else{
     cout << "Patient has been successfully found in the system." << endl;
-    patientList.printList();
+    patientList->printList();
   }
 }
 
 // Implement me (add parameter for patient)
-void modifyPatient(List& patientList){
+void modifyPatient(List* patientList){
   return;
 }
 
 // Implement me (add parameter for patient)
-void printAll(List& patientList){
+void printAll(List* patientList){
   return;
 }
 

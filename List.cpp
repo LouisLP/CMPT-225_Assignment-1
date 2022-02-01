@@ -25,7 +25,7 @@ List::List() : elementCount(0), capacity(List::INITIAL_CAPACITY) {
 // Destructor
 List::~List() {
 	cout << "Destructing a List!" << endl;
-   this->clear();
+   //this->clear();
 }
 
 // Description: Returns the current number of elements in the List.
@@ -87,6 +87,7 @@ void List::printList(){
 
 // Description: Returns the element at position in the List.
 // Precondition: 1 <= position <= getElementCount().
+/*
 Profile List::getElement(int position) const {
    Profile toBeReturned;
 
@@ -117,13 +118,14 @@ void List::setElement(int position, const Profile& newElement) {
       cout << message;  // throw exception may be better
    }  // end if
 }
-
+*/
 // Description: Prints all elements in the List.
+/*
 ostream & operator<<(ostream & os, const List& rhs) {
    for (int index = 0; index < rhs.elementCount; index++)
       os << "Element " << index+1 << " is " << rhs.elements[index].getName() << endl;
 
    return os;
 }
-
+*/
 //  End of implementation file
