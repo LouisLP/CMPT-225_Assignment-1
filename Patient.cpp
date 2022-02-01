@@ -48,12 +48,12 @@ Patient::Patient(string aCareCard) {
 // New Parameterized Constructor 2 (all attributes)
 // Description: Create a patient with ALL attributes filled (carecard, name, address, phone, and email).
 // Postcondition: If aCareCard does not have 10 digits, then CareCard is set to "0000000000".
-Patient::Patient(const string aCareCard, const string aName, const string anAddress, const string aPhone, const string anEmail) {
+Patient::Patient(string aCareCard, string aName, string anAddress, string aPhone, string anEmail) {
 // You need to complete this method.
-	setName(aName);
-	setAddress(anAddress);
-	setPhone(aPhone);
-	setEmail(anEmail);
+	name = aName;
+	address = anAddress;
+	phone = aPhone;
+	email = anEmail;
 
 	if (aCareCard.length() != 10){
 		cout << "CareCard length wasn't entered as 10-digits, defaulting to 0000000000" << endl;
@@ -144,8 +144,8 @@ ostream & operator<<(ostream & os, const Patient & p) {
 
 // New method: printPatient
 // Description: prints all attributes of "this" patient
-void printPatient(){
-	cout << getCareCard() << "- Patient: " << getName() << ", " << getAddress() << ", " << getPhone() << ", " << getEmail << endl;
+void Patient::printPatient(){
+	cout << getCareCard() << "- Patient: " << getName() << ", " << getAddress() << ", " << getPhone() << ", " << getEmail() << endl;
 }
 
 // end of Patient.cpp
