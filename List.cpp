@@ -25,7 +25,7 @@ List::List() : elementCount(0), capacity(List::INITIAL_CAPACITY) {
 // Destructor
 List::~List() {
 	cout << "Destructing a List!" << endl;
-   //this->clear();
+  delete[] elements;
 }
 
 // Description: Returns the current number of elements in the List.
@@ -37,7 +37,29 @@ int List::getElementCount() const {
 // Precondition: newElement must not already be in data collection.
 // Postcondition: newElement inserted and elementCount has been incremented.
 bool List::insert(const Patient& newElement){
-  return false;
+  // Find index for insertion (and deal with duplicate cases)
+  int insertIndex = 0;
+
+  for(; (insertIndex < getElementCount()) && (newElement > elements[insertIndex]); insertIndex++);
+
+  if(newElement == elements[insertIndex]){
+    return false;
+  }
+
+  Patient temp;
+
+  // Push the preceding elements by cascading them up 1
+  // Insert the element into the found index
+  for(int i = insertIndex; i < getElementCount(); i++){
+    temp = elements[i+1];
+    elements[i+1] = elements[i];
+    elements[i] = newElement;
+  }
+
+  // Implement if we need to rezize the list
+  // if(capacity == elementCount){
+  // }
+  return true;
 }
 
 // Description: Remove an element.

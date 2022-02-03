@@ -108,7 +108,7 @@ void Patient::setPhone(const string aPhone){
 void Patient::setEmail(const string anEmail){
 	email = anEmail;
 }
-
+//
 // Overloaded Operators
 // Description: Comparison operator. Compares "this" Patient object with "rhs" Patient object.
 //              Returns true if both Patient objects have the same CareCard number.
