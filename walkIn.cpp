@@ -76,6 +76,9 @@ void modifyPatient(List* patientList){
 
 // Implement me (add parameter for patient)
 void printAll(List* patientList){
+  // for(int i = 0; i < elementCount; i++){
+  //     cout << patientList[i].getCareCard() << "- Patient: " << patientList[i].getName() << ", " << patientList[i].getAddress() << ", " << patientList[i].getPhone() << ", " << patientList[i].getEmail() << endl;
+  // }
   return;
 }
 

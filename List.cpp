@@ -19,12 +19,12 @@
 
 // Constructor
 List::List() : elementCount(0), capacity(List::INITIAL_CAPACITY) {
-   cout << "Constructing a List!" << endl;
+   //cout << "Constructing a List!" << endl;
 }
 
 // Destructor
 List::~List() {
-	cout << "Destructing a List!" << endl;
+	//cout << "Destructing a List!" << endl;
   delete[] elements;
 }
 
@@ -102,7 +102,7 @@ Patient* List::search(const Patient& target){
   }
 } // End "search"
 
-// Description: Prints all elements stored in List by descending order of search key.
+// Description: Prints all elements stored in List by descending order of CareCard number.
 void List::printList(){
   return;
 }

@@ -142,10 +142,5 @@ ostream & operator<<(ostream & os, const Patient & p) {
 	return os;
 } // end of operator<<
 
-// New method: printPatient
-// Description: prints all attributes of "this" patient
-void Patient::printPatient(){
-	cout << getCareCard() << "- Patient: " << getName() << ", " << getAddress() << ", " << getPhone() << ", " << getEmail() << endl;
-}
 
 // end of Patient.cpp
