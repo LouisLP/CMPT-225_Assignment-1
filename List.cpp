@@ -40,9 +40,9 @@ bool List::insert(const Patient& newElement){
   // Find index for insertion (and deal with duplicate cases)
   int insertIndex = 0;
 
-  for(; (insertIndex < getElementCount()) && (newElement > elements[insertIndex]); insertIndex++);
+  for(; (insertIndex < getElementCount()) && (newElement.getCareCard() > elements[insertIndex].getCareCard()); insertIndex++);
 
-  if(newElement == elements[insertIndex]){
+  if(newElement.getCareCard() == elements[insertIndex].getCareCard()){
     return false;
   }
 
