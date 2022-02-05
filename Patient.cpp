@@ -6,8 +6,8 @@
  *                  This CareCard number must have 10 digits.
  *                  This CareCard number cannot be modified.
  *
- * Author: Louis Lascelles-Palys
- * Date: January 24th, 2022
+ * Authors: Louis Lascelles-Palys, Maximilian Amann
+ * Date: February 4th, 2022 (latest modification)
  */
 
 // You can add #include statements if you wish.
@@ -67,48 +67,49 @@ Patient::Patient(string aCareCard, string aName, string anAddress, string aPhone
 // Description: Returns patient's name.
 string Patient::getName() const{
 	return name;
-}
+} // End of "getName"
 
 // Description: Returns patient's address.
 string Patient::getAddress() const{
 	return address;
-}
+} // End of "getAddress"
 
 // Description: Returns patient's phone.
 string Patient::getPhone() const{
 	return phone;
-}
+} // End of "getPhone"
 
 // Description: Returns patient's email.
 string Patient::getEmail() const{
 	return email;
-}
+} // End of "getEmail"
 
 // Description: Returns patient's CareCard.
 string Patient::getCareCard() const{
 	return careCard;
-}
+} // End of "getCareCard"
 
 // Description: Sets the patient's name.
 void Patient::setName(const string aName){
 	name = aName;
-}
+} // End of "setName"
 
 // Description: Sets the patient's address.
 void Patient::setAddress(const string anAddress){
 	address = anAddress;
-}
+} // End of "setAddress"
 
 // Description: Sets the patient's phone.
 void Patient::setPhone(const string aPhone){
 	phone = aPhone;
-}
+} // End of "setPhone"
 
 // Description: Sets the patient's email.
 void Patient::setEmail(const string anEmail){
 	email = anEmail;
-}
-//
+} // End of "setEmail"
+
+//----------------------------------------------
 // Overloaded Operators
 // Description: Comparison operator. Compares "this" Patient object with "rhs" Patient object.
 //              Returns true if both Patient objects have the same CareCard number.
@@ -141,6 +142,6 @@ ostream & operator<<(ostream & os, const Patient & p) {
 
 	return os;
 } // end of operator<<
-
+//----------------------------------------------
 
 // end of Patient.cpp
