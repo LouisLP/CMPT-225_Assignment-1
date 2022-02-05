@@ -57,6 +57,10 @@ bool List::insert(const Patient& newElement){
 
   // Insert the element into the found insertion index
   elements[insertIndex] = newElement;
+<<<<<<< HEAD
+=======
+
+>>>>>>> afc0c6ac2ca605a6d79729dbf066abaa4e05de8b
   // Increment elementCount by 1 if successful
   elementCount++;
   return true;
