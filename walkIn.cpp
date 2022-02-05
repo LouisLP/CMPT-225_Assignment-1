@@ -30,7 +30,6 @@ void addPatient(List* patientList){
     cout << "Error: unable to insert new patient." << endl;
   } else{
     cout << "New patient has been successfully entered into the system." << endl;
-    //patientList->printList();
   }
 }
 
