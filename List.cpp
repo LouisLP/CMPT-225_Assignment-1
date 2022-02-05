@@ -176,8 +176,8 @@ Patient* List::search(const Patient& target){
 void List::printList(){
   // Checking if there are any elements in the list. If yes, print them in order
   if (getElementCount() > 0) {
-    for (int i = getElementCount(); i > 0; i--){
-      cout << elements[i];
+    for (int i = getElementCount() - 1; i >= 0; i--){
+      cout << elements[i] << endl;
     }
   }
   else {
