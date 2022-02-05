@@ -47,8 +47,7 @@ bool List::insert(const Patient& newElement){
     return false;
   }
 
-  // Pull the preceding elements by cascading them down
-
+  // Pull the preceding elements by cascading them down (as long as the insertion index is less than the element count)
   if (insertIndex < getElementCount()) {
     for(int count = getElementCount(); count > insertIndex-1; count--){
       elements[count + 1] = elements[count];
@@ -57,10 +56,6 @@ bool List::insert(const Patient& newElement){
 
   // Insert the element into the found insertion index
   elements[insertIndex] = newElement;
-<<<<<<< HEAD
-=======
-
->>>>>>> afc0c6ac2ca605a6d79729dbf066abaa4e05de8b
   // Increment elementCount by 1 if successful
   elementCount++;
   return true;
@@ -69,8 +64,7 @@ bool List::insert(const Patient& newElement){
 // Description: Remove an element.
 // Postcondition: toBeRemoved is removed and elementCount has been decremented.
 bool List::remove(const Patient& toBeRemoved){
-  // Finding the element to be removed
-  //string toBeRemovedCareCard = toBeRemoved.getCareCard();
+  // Finding the element to be removed and shifting it up
   for (int i = 0; i  < getElementCount(); i++){
     if (elements[i].getCareCard() == toBeRemoved.getCareCard()){
       for (int shifter = i; shifter < getElementCount(); shifter++) {
@@ -78,7 +72,7 @@ bool List::remove(const Patient& toBeRemoved){
       }
 
       // If it's successfully removed, element count decreases by 1
-            // And we return true because it was removed successfully
+      // And we return true because it was removed successfully
       elementCount--;
       return true;
     }
@@ -86,10 +80,9 @@ bool List::remove(const Patient& toBeRemoved){
   return false;
 } // End "remove"
 
-// Description: Modify an element.
+// Description: Modify an element in the list
 // Postcondition: toBeModified is modified.
 bool List::modify(const Patient& toBeModified){
-  // Finding the element to be removed
 
   for (int i = 0; i  < getElementCount(); i++){
     if (elements[i] == toBeModified.getCareCard()){
@@ -103,8 +96,8 @@ bool List::modify(const Patient& toBeModified){
       cout << "To modify the patients address, enter: a" << endl;
       // Modify phone number
       cout << "To modify the patients phone, enter: p" << endl;
-      // Modify eMail
-      cout << "To modify the patients eMail, enter: e" << endl;
+      // Modify email
+      cout << "To modify the patients email, enter: e" << endl;
 
       cout << "------------------------------------------------------" << endl;
       cout << "Your choice: " << endl;
@@ -121,15 +114,16 @@ bool List::modify(const Patient& toBeModified){
           case 'n': {changedInformation = "name"; break;}
           case 'a': {changedInformation = "address"; break;}
           case 'p': {changedInformation = "phone"; break;}
-          case 'e': {changedInformation = "eMail"; break;}
+          case 'e': {changedInformation = "email"; break;}
           default: cout << "Invalid choice." << endl;
       }
 
+      // Asking for the changed information
       cout << "Enter the patients modified " << changedInformation << ": ";
       cin.ignore(numeric_limits<streamsize>::max(), '\n');
       getline(cin,information);
 
-
+      // Adding the changed information to its respective field
       switch(input) {
           case 'n': {
             elements[i].setName(information);
@@ -183,7 +177,7 @@ void List::printList(){
   // Checking if there are any elements in the list. If yes, print them in order
   if (getElementCount() > 0) {
     for (int i = 0; i  < getElementCount(); i++){
-      cout << "Patient #" << i+1 << ": " << elements[i] << endl;
+      cout << elements[i] << endl;
     }
   }
   else {

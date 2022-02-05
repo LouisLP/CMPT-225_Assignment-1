@@ -16,6 +16,7 @@
 using namespace std;
 
 // Description: adds a new patient based off of given Care Card number
+// The input must be valid to be successfully entered
 void addPatient(List* patientList){
   string input;
   cout << "You have chosen to enter a new patient." << endl;
@@ -34,6 +35,7 @@ void addPatient(List* patientList){
 }
 
 // Description: removes a patient based off of given Care Card number
+// The input must be valid (and exist) to be successfully removed
 void removePatient(List* patientList){
   string input;
   cout << "You have chosen to remove a patient." << endl;
@@ -49,7 +51,6 @@ void removePatient(List* patientList){
   }
   else {
     cout << "Patient has been successfully removed from the system." << endl;
-    //patientList->printList();
   }
 }
 
@@ -69,11 +70,11 @@ void modifyPatient(List* patientList){
   }
   else {
     cout << "Patient information has been successfully modified." << endl;
-    //patientList->printList();
   }
 }
 
 // Description: searches for an existing patient based off of given Care Card number
+// Patient must not be NULL
 void searchPatient(List* patientList){
   string input;
   cout << "You have chosen to search for a patient." << endl;
@@ -90,12 +91,12 @@ void searchPatient(List* patientList){
   }
 }
 
-// Implement me (add parameter for patient)
+// Description: Prints all patients in the list (sorting was done while inserting)
 void printAll(List* patientList){
   patientList->printList();
 }
 
-// Beging main function (giving the receptionist menu options)
+// Begin main function (giving the receptionist menu options)
 int main() {
     List* patients = new List();
     bool done = false;
@@ -138,8 +139,6 @@ int main() {
             case 'x': cout << "Goodbye!" << endl; done = true; break;
             default: cout << "Invalid choice. Please try again!" << endl;
         }
-        cout << "There are now " << patients->getElementCount() << " registered patients." << endl;
-        //cout << *patients << endl;
     }
 
     return 0;

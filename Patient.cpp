@@ -142,10 +142,6 @@ ostream & operator<<(ostream & os, const Patient & p) {
 
 	return os;
 } // end of operator<<
-<<<<<<< HEAD
-=======
-
->>>>>>> afc0c6ac2ca605a6d79729dbf066abaa4e05de8b
 //----------------------------------------------
 
 // end of Patient.cpp
