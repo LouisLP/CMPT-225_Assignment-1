@@ -177,7 +177,7 @@ void List::printList(){
   // Checking if there are any elements in the list. If yes, print them in order
   if (getElementCount() > 0) {
     for (int i = getElementCount() - 1; i >= 0; i--){
-      cout << elements[i] << endl;
+      cout << elements[i];
     }
   }
   else {
