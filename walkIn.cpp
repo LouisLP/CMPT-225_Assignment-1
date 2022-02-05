@@ -9,6 +9,7 @@
  */
 
 #include <iostream>
+#include <string>
 #include "Patient.h"
 #include "List.h"
 
@@ -41,12 +42,35 @@ void removePatient(List* patientList){
 
   Patient patientToRemove = Patient(input);
   // Checking to see if the patient can be removed (bool value from List.cpp)
+
   bool valid = patientList->remove(patientToRemove);
   if(!valid) {
-    cout << "Error: unable to remove patient. Check your Care Card number and try again." << endl;
+    cout << "Error: unable to remove patient. Check your CareCard number and try again." << endl;
   }
   else {
     cout << "Patient has been successfully removed from the system." << endl;
+    patientList->printList();
+  }
+}
+
+// Description: modifies a patient based off of given Care Card number
+void modifyPatient(List* patientList){
+  string input;
+  string input2;
+  cout << "You have chosen to modify a patient." << endl;
+  cout << "Please enter the 10-digit CareCard number of the patient you'd like to modify: ";
+  cin >> input;
+  //cout << "Please enter the modified 10-digit CareCard number: ";
+  //cin >> input2;
+
+  Patient patientToModify = Patient(input);
+  // Checking to see if the patient can be modified (bool value from List.cpp)
+  bool valid = patientList->modify(patientToModify);
+  if(!valid) {
+    cout << "Error: unable to modify patient. Check your CareCard number and try again." << endl;
+  }
+  else {
+    cout << "Patient CareCard number has been successfully modified." << endl;
     patientList->printList();
   }
 }
@@ -70,21 +94,13 @@ void searchPatient(List* patientList){
 }
 
 // Implement me (add parameter for patient)
-void modifyPatient(List* patientList){
-  return;
-}
-
-// Implement me (add parameter for patient)
 void printAll(List* patientList){
-  // for(int i = 0; i < elementCount; i++){
-  //     cout << patientList[i].getCareCard() << "- Patient: " << patientList[i].getName() << ", " << patientList[i].getAddress() << ", " << patientList[i].getPhone() << ", " << patientList[i].getEmail() << endl;
-  // }
-  return;
+  patientList->printList();
 }
 
 // Beging main function (giving the receptionist menu options)
 int main() {
-    List * patients = new List();
+    List* patients = new List();
     bool done = false;
     char input = 0;
 
@@ -125,6 +141,8 @@ int main() {
             case 'x': cout << "Goodbye!" << endl; done = true; break;
             default: cout << "Invalid choice. Please try again!" << endl;
         }
+        cout << "There are now " << patients->getElementCount() << " registered patients." << endl;
+        //cout << *patients << endl;
     }
 
     return 0;

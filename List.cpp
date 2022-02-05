@@ -59,6 +59,7 @@ bool List::insert(const Patient& newElement){
   // Implement if we need to rezize the list
   // if(capacity == elementCount){
   // }
+  elementCount++;
   return true;
 }
 
@@ -66,14 +67,38 @@ bool List::insert(const Patient& newElement){
 // Postcondition: toBeRemoved is removed and elementCount has been decremented.
 bool List::remove(const Patient& toBeRemoved){
   // Finding the element to be removed
+  //string toBeRemovedCareCard = toBeRemoved.getCareCard();
+  cout << "~ " << toBeRemoved.getCareCard() << " ~" << endl;
+  cout << "~ " << elements[0] << " ~" << endl;
+  cout << "~ " << elements[1] << " ~" << endl;
+  cout << "~ " << elements[2] << " ~" << endl;
   for (int i = 0; i  < getElementCount(); i++){
-    if (elements[i] == toBeRemoved){
+    if (elements[i] == toBeRemoved.getCareCard()){
       for (int j = i+1; j < elementCount; j++){
         elements[j-1] = elements[j];
       }
       // If it's successfully removed, element count decreases by 1
       elementCount--;
       // And we return true because it was removed successfully
+      return true;
+    } else{
+      return false;
+    }
+  }
+} // End "remove"
+
+// Description: Modify an element.
+// Postcondition: toBeModified is modified.
+bool List::modify(const Patient& toBeModified){
+  // Finding the element to be removed
+  
+  for (int i = 0; i  < getElementCount(); i++){
+    if (elements[i] == toBeModified){
+      string input;
+      cout << "Please enter the modified 10-digit CareCard number: ";
+      cin >> input;
+      elements[i] == input;
+      // And we return true because it was modified successfully
       return true;
     } else{
       return false;
@@ -104,7 +129,15 @@ Patient* List::search(const Patient& target){
 
 // Description: Prints all elements stored in List by descending order of CareCard number.
 void List::printList(){
-  return;
+  if (getElementCount() > 0) {
+    for (int i = 0; i  < getElementCount(); i++){
+      cout << "PATIENT #" << i << ": " << elements[i] << endl;
+    }
+  }
+  else {
+    cout << "No patients have been entered." << endl;
+  }
+
 }
 
 // Description: Returns the element at position in the List.

@@ -69,6 +69,10 @@ public:
 	// Postcondition: toBeRemoved is removed and elementCount has been decremented.
 	bool remove(const Patient& toBeRemoved);
 
+	// Description: Remove an element.
+	// Postcondition: toBeRemoved is removed and elementCount has been decremented.
+	bool modify(const Patient& toBeModified);
+
 	// Description: Remove all elements.
 	void removeAll();
 
