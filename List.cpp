@@ -46,15 +46,16 @@ bool List::insert(const Patient& newElement){
     return false;
   }
 
-  Patient temp;
-
   // Push the preceding elements by cascading them up 1
   // Insert the element into the found index
-  for(int i = insertIndex; i < getElementCount(); i++){
-    temp = elements[i+1];
-    elements[i+1] = elements[i];
-    elements[i] = newElement;
+
+  if (insertIndex < getElementCount()) {
+    for(int count = getElementCount(); count > insertIndex-1; count--){
+    elements[count + 1] = elements[count];
+    }
   }
+
+  elements[insertIndex] = newElement;
 
   // Implement if we need to rezize the list
   // if(capacity == elementCount){
@@ -93,14 +94,55 @@ bool List::modify(const Patient& toBeModified){
   // Finding the element to be removed
   
   for (int i = 0; i  < getElementCount(); i++){
-    if (elements[i] == toBeModified){
-      string input;
-      cout << "Please enter the modified 10-digit CareCard number: ";
+    if (elements[i] == toBeModified.getCareCard()){
+      char input = 0;
+
+      // Printing the "menu"
+      cout << "What would you like to modify?" << endl;
+      // Modify CareCard
+      cout << "To modify the patients CareCard, enter: c" << endl;
+      // Modify name
+      cout << "To modify the patients name, enter: n" << endl;
+      // Modify address
+      cout << "To modify the patients address, enter: a" << endl;
+      // Modify phone number
+      cout << "To modify the patients phone, enter: p" << endl;
+      // Modify eMail
+      cout << "To modify the patients eMail, enter: e" << endl;
+
+      cout << "------------------------------------------------------" << endl;
+      cout << "Your choice: " << endl;
       cin >> input;
-      elements[i] == input;
-      // And we return true because it was modified successfully
+      // Converting to lowercase if the user inputs an uppercase letter
+      input = tolower(input);
+      cout << "------------------------------------------------------" << endl;
+
+      string changedInformation = "";
+      string modified = toBeModified.getCareCard();
+
+      switch(input) {
+          case 'c': {changedInformation = "CareCard"; break;}
+          case 'n': {changedInformation = "name"; break;}
+          case 'a': {changedInformation = "address"; break;}
+          case 'p': {changedInformation = "phone"; break;}
+          case 'e': {changedInformation = "eMail"; break;}
+          default: cout << "Invalid choice." << endl;
+      }
+
+      cout << "Enter the patients modified " << changedInformation << ": ";
+
+      switch(input) {
+          case 'c': {changedInformation = "CareCard"; break;}
+          case 'n': {changedInformation = "name"; break;}
+          case 'a': {changedInformation = "address"; break;}
+          case 'p': {changedInformation = "phone"; break;}
+          case 'e': {changedInformation = "eMail"; break;}
+          default: cout << "Invalid choice." << endl;
+      }
+
       return true;
-    } else{
+    } 
+    else{
       return false;
     }
   }
