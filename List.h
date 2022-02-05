@@ -1,13 +1,13 @@
 /*
  * List.h
  *
- * Class Description: List data collection ADT.
+ * Class Description: List data collection ADT for use in Assignment 1 of CMPT225
  * Class Invariant: Data collection with the following characteristics:
  *                   - Each element is unique (no duplicates).
  *                   - (For you to fill: Add the other invariant(s) of this List class.)
  *
- * Author: Louis Lascelles-Palys
- * Date: January 29th, 2022 (latest modification)
+ * Authors: Louis Lascelles-Palys, Maximilian Amann
+ * Date: February 4th, 2022 (latest modification)
  */
 
 #pragma once
@@ -60,8 +60,8 @@ public:
 	// Description: Returns the total element count currently stored in List.
 	int getElementCount() const;
 
-	// Description: Insert an element.
-	// Precondition: newElement must not already be in data collection.
+	// Description: Insert an element (while sorting by CareCard number)
+	// Precondition: newElement must not already be in data collection (duplicate).
 	// Postcondition: newElement inserted and elementCount has been incremented.
 	bool insert(const Patient& newElement);
 

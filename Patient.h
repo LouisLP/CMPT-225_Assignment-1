@@ -6,8 +6,8 @@
  *                  This CareCard number must have 10 digits.
  *                  This CareCard number cannot be modified.
  *
- * Author: Louis Lascelles-Palys
- * Date: January 24th, 2022
+ * Authors: Louis Lascelles-Palys, Maximilian Amann
+ * Date: February 4th, 2022 (latest modification)
  */
 
 #pragma once

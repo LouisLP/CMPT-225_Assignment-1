@@ -2,11 +2,11 @@
  * walkIn.cpp
  *
  * Class Description: Main interface of receptionist's access to patient records at walk-in clinic.
- * Class Invariant: --
+ * Class Invariant: Receptionist must enter the correct letters when picking
  *
- * Author: Louis Lascelles-Palys
- * Date: January 29th, 2022
- */
+ * Authors: Louis Lascelles-Palys, Maximilian Amann
+ * Date: February 4th, 2022 (latest modification)
+*/
 
 #include <iostream>
 #include <string>
@@ -19,7 +19,7 @@ using namespace std;
 void addPatient(List* patientList){
   string input;
   cout << "You have chosen to enter a new patient." << endl;
-  cout << "Please enter the 10-digit CareCard number of the new patient: ";
+  cout << "Please enter the 10-digit CareCard number of the new patient: " << endl;
   cin >> input;
 
   Patient newPatient = Patient(input);
@@ -29,7 +29,7 @@ void addPatient(List* patientList){
     cout << "Error: unable to insert new patient." << endl;
   } else{
     cout << "New patient has been successfully entered into the system." << endl;
-    patientList->printList();
+    //patientList->printList();
   }
 }
 
@@ -37,7 +37,7 @@ void addPatient(List* patientList){
 void removePatient(List* patientList){
   string input;
   cout << "You have chosen to remove a patient." << endl;
-  cout << "Please enter the 10-digit CareCard number of the patient you'd like to remove: ";
+  cout << "Please enter the 10-digit CareCard number of the patient you'd like to remove: " << endl;
   cin >> input;
 
   Patient patientToRemove = Patient(input);
@@ -49,29 +49,26 @@ void removePatient(List* patientList){
   }
   else {
     cout << "Patient has been successfully removed from the system." << endl;
-    patientList->printList();
+    //patientList->printList();
   }
 }
 
 // Description: modifies a patient based off of given Care Card number
 void modifyPatient(List* patientList){
   string input;
-  string input2;
   cout << "You have chosen to modify a patient." << endl;
-  cout << "Please enter the 10-digit CareCard number of the patient you'd like to modify: ";
+  cout << "Please enter the 10-digit CareCard number of the patient you'd like to modify: " << endl;
   cin >> input;
-  //cout << "Please enter the modified 10-digit CareCard number: ";
-  //cin >> input2;
 
   Patient patientToModify = Patient(input);
   // Checking to see if the patient can be modified (bool value from List.cpp)
   bool valid = patientList->modify(patientToModify);
   if(!valid) {
-    cout << "Error: unable to modify patient. Check your CareCard number and try again." << endl;
+    cout << "Error: unable to modify patient information. Check your CareCard number and try again." << endl;
   }
   else {
-    cout << "Patient CareCard number has been successfully modified." << endl;
-    patientList->printList();
+    cout << "Patient information has been successfully modified." << endl;
+    //patientList->printList();
   }
 }
 
@@ -79,7 +76,7 @@ void modifyPatient(List* patientList){
 void searchPatient(List* patientList){
   string input;
   cout << "You have chosen to search for a patient." << endl;
-  cout << "Please enter the 10-digit CareCard number of the patient you'd like to search for: ";
+  cout << "Please enter the 10-digit CareCard number of the patient you'd like to search for: " << endl;;
   cin >> input;
 
   Patient patientToSearch = Patient(input);
@@ -89,7 +86,6 @@ void searchPatient(List* patientList){
     cout << "Error: unable to find patient." << endl;
   } else{
     cout << "Patient has been successfully found in the system." << endl;
-    patientList->printList();
   }
 }
 
@@ -110,7 +106,7 @@ int main() {
     // Keep displaying options until the user is done
     while(!done){
 
-        cout << "-------------------------------------------------------" << endl;
+        cout << endl << "-------------------------------------------------------" << endl;
         // Enter a new patient
         cout << "To enter a patient to the system, enter: e" << endl;
         // Remove a patient
