@@ -14,6 +14,7 @@
  */
 
 #include <iostream>
+#include <limits>
 #include "Patient.h"
 #include "List.h"  // Header file
 
@@ -47,6 +48,7 @@ bool List::insert(const Patient& newElement){
   }
 
   // Pull the preceding elements by cascading them down
+
   if (insertIndex < getElementCount()) {
     for(int count = getElementCount(); count > insertIndex-1; count--){
       elements[count + 1] = elements[count];
@@ -65,23 +67,19 @@ bool List::insert(const Patient& newElement){
 bool List::remove(const Patient& toBeRemoved){
   // Finding the element to be removed
   //string toBeRemovedCareCard = toBeRemoved.getCareCard();
-  cout << "~ " << toBeRemoved.getCareCard() << " ~" << endl;
-  cout << "~ " << elements[0] << " ~" << endl;
-  cout << "~ " << elements[1] << " ~" << endl;
-  cout << "~ " << elements[2] << " ~" << endl;
   for (int i = 0; i  < getElementCount(); i++){
-    if (elements[i] == toBeRemoved.getCareCard()){
-      for (int j = i+1; j < elementCount; j++){
-        elements[j-1] = elements[j];
+    if (elements[i].getCareCard() == toBeRemoved.getCareCard()){
+      for (int shifter = i; shifter < getElementCount(); shifter++) {
+        elements[shifter] = elements[shifter+1];
       }
+
       // If it's successfully removed, element count decreases by 1
+            // And we return true because it was removed successfully
       elementCount--;
-      // And we return true because it was removed successfully
       return true;
-    } else{
-      return false;
     }
   }
+  return false;
 } // End "remove"
 
 // Description: Modify an element.
@@ -94,9 +92,7 @@ bool List::modify(const Patient& toBeModified){
       char input = 0;
 
       // Printing the "menu"
-      cout << "What would you like to modify?" << endl;
-      // Modify CareCard
-      cout << "To modify the patients CareCard, enter: c" << endl;
+      cout << endl << "What would you like to modify?" << endl;
       // Modify name
       cout << "To modify the patients name, enter: n" << endl;
       // Modify address
@@ -115,9 +111,9 @@ bool List::modify(const Patient& toBeModified){
 
       string changedInformation = "";
       string modified = toBeModified.getCareCard();
+      string information;
 
       switch(input) {
-          case 'c': {changedInformation = "CareCard"; break;}
           case 'n': {changedInformation = "name"; break;}
           case 'a': {changedInformation = "address"; break;}
           case 'p': {changedInformation = "phone"; break;}
@@ -126,16 +122,30 @@ bool List::modify(const Patient& toBeModified){
       }
 
       cout << "Enter the patients modified " << changedInformation << ": ";
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      getline(cin,information);
+
 
       switch(input) {
-          case 'c': {changedInformation = "CareCard"; break;}
-          case 'n': {changedInformation = "name"; break;}
-          case 'a': {changedInformation = "address"; break;}
-          case 'p': {changedInformation = "phone"; break;}
-          case 'e': {changedInformation = "eMail"; break;}
+          case 'n': {
+            elements[i].setName(information);
+            break;
+            }
+          case 'a': {
+            elements[i].setAddress(information);
+            break;
+            }
+          case 'p': {
+            elements[i].setPhone(information);
+            break;
+            }
+          case 'e': {
+            elements[i].setEmail(information);
+            break;
+            }
           default: cout << "Invalid choice." << endl;
       }
-
+      input = 0;
       return true;
     }
     else{
@@ -156,6 +166,7 @@ void List::removeAll(){
 Patient* List::search(const Patient& target){
   for (int i = 0; i < getElementCount(); i++){
     if (elements[i] == target){
+      cout << "Patient #" << i+1 << ": " << elements[i] << endl;
       return &elements[i];
     } else{
       return NULL;

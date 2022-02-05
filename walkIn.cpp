@@ -29,7 +29,7 @@ void addPatient(List* patientList){
     cout << "Error: unable to insert new patient." << endl;
   } else{
     cout << "New patient has been successfully entered into the system." << endl;
-    patientList->printList();
+    //patientList->printList();
   }
 }
 
@@ -49,7 +49,7 @@ void removePatient(List* patientList){
   }
   else {
     cout << "Patient has been successfully removed from the system." << endl;
-    patientList->printList();
+    //patientList->printList();
   }
 }
 
@@ -65,11 +65,11 @@ void modifyPatient(List* patientList){
   // Checking to see if the patient can be modified (bool value from List.cpp)
   bool valid = patientList->modify(patientToModify);
   if(!valid) {
-    cout << "Error: unable to modify patient. Check your CareCard number and try again." << endl;
+    cout << "Error: unable to modify patient information. Check your CareCard number and try again." << endl;
   }
   else {
-    cout << "Patient CareCard number has been successfully modified." << endl;
-    patientList->printList();
+    cout << "Patient information has been successfully modified." << endl;
+    //patientList->printList();
   }
 }
 
@@ -87,7 +87,6 @@ void searchPatient(List* patientList){
     cout << "Error: unable to find patient." << endl;
   } else{
     cout << "Patient has been successfully found in the system." << endl;
-    patientList->printList();
   }
 }
 
@@ -108,7 +107,7 @@ int main() {
     // Keep displaying options until the user is done
     while(!done){
 
-        cout << "-------------------------------------------------------" << endl;
+        cout << endl << "-------------------------------------------------------" << endl;
         // Enter a new patient
         cout << "To enter a patient to the system, enter: e" << endl;
         // Remove a patient
