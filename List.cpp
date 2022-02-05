@@ -83,8 +83,7 @@ bool List::remove(const Patient& toBeRemoved){
 // Description: Modify an element in the list
 // Postcondition: toBeModified is modified.
 bool List::modify(const Patient& toBeModified){
-
-  for (int i = 0; i  < getElementCount(); i++){
+  for (int i = 0; i < getElementCount(); i++){
     if (elements[i] == toBeModified.getCareCard()){
       char input = 0;
 
@@ -146,10 +145,8 @@ bool List::modify(const Patient& toBeModified){
       input = 0;
       return true;
     }
-    else{
-      return false;
-    }
   }
+  return false;
 } // End "remove"
 
 // Description: Remove all elements.
