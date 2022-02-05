@@ -159,14 +159,13 @@ void List::removeAll(){
 
 // Description: Search for target element - returns a pointer to the element if found, otherwise, returns NULL.
 Patient* List::search(const Patient& target){
-  for (int i = 0; i < getElementCount(); i++){
-    if (elements[i] == target){
+  for (int i = 0; i < 10; i++){
+    if (elements[i] == target.getCareCard()){
       cout << "Patient #" << i+1 << ": " << elements[i] << endl;
       return &elements[i];
-    } else{
-      return NULL;
     }
   }
+  return NULL;
 } // End "search"
 
 // Description: Prints all elements stored in List by descending order of CareCard number.
